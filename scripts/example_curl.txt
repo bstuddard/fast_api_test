@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'http://localhost:8000/score/' \
+  -H 'accept: application/json' \
+  -H 'x-api-key: apikeyval' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "input_text_list": [
+    "Great food!", "Horrible food!"
+  ]
+}'
