@@ -1,0 +1,14 @@
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+GIT_USER=<github-username>      # Your GitHub user account name
+GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
+GIT_REPO=<repo-name>            # Name of the repo
+
+az acr task create \
+    --registry $ACR_NAME \
+    --name taskdeployoncommit \
+    --image fastapi:{{.Run.ID}} \
+    --context https://github.com/$GIT_USER/$GIT_REPO.git#main \
+    --file Dockerfile \
+    --git-access-token $GIT_PAT
+
+az acr task run --registry $ACR_NAME --name taskdeployoncommit

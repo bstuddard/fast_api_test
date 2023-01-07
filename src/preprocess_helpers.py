@@ -6,7 +6,7 @@ def preprocess(text: str) -> str:
         text (str): Input text string to normalize.
 
     Returns:
-        str: String after processing with text substitions.
+        str: String after processing with text substitutions.
     """
     new_text = []
  
